@@ -24,7 +24,7 @@ const memories = [
   { text: "Bruce!", image: import.meta.env.BASE_URL + "images/bruce.png" },
   { text: "You are viewing the morning Alex asked to be Penelope's boyfriend!", image: import.meta.env.BASE_URL + "images/dating.png" },
   { text: "You are witnessing the magic of Penelope and Alex's first Christmas together!", image: import.meta.env.BASE_URL + "images/christmas.png" },
-  { text: "You revealed one of many traveling destinations of Penelope and Alex!", image: import.meta.env.BASE_URL + "images/times.png" },
+  { text: "You unlocked an empty Times Square with just Penelope and Alex in it! ULTRA RARE!!!", image: import.meta.env.BASE_URL + "images/times.png" },
   { text: "You unlocked one of the most delicious and heartwarming meals ever!", image: import.meta.env.BASE_URL + "images/kbbq.png" },
   {
     text: "Looking back on all of these memories, it's hard to pick my favorites. Every moment I share with you is so special and precious to me. To creating many more together! I'll always love you Alex ~ Happy Valentine's Day ❤️",
