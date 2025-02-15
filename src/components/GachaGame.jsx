@@ -15,12 +15,23 @@ const items = [
   { name: "Couple's Trip", emoji: "✈️" }
 ];
 
+
 const memories = [
-  { text: "You just opened a memory of Penelope and Alex at Horseshoe Bend!", image: "/images/horseshoe.jpg" },
-  { text: "You just opened FORTNITE, Penelope and Alex's favorite game!", image: "/images/fortnite.jpg" },
-  { text: "You just unlocked a cozy coffee date at Central Perk!", image: "/images/coffee.jpg" },
-  { text: "You revealed a handwritten love letter from Alex to Penelope!", image: "/images/loveletter.jpg" }
+  { text: "You just opened a memory of Penelope and Alex at Horseshoe Bend!", image: import.meta.env.BASE_URL + "images/horseshoe.png" },
+  { text: "You just opened the moment Penelope and Alex stepped into 2025 together in Fortnite!", image: import.meta.env.BASE_URL + "images/2025.png" },
+  { text: "You just unlocked a moment between Penelope and Alex before the wedding in New York!", image: import.meta.env.BASE_URL + "images/wedding.png" },
+  { text: "You revealed the first picture taken of Penelope and Alex together!", image: import.meta.env.BASE_URL + "images/first.png" },
+  { text: "Bruce!", image: import.meta.env.BASE_URL + "images/bruce.png" },
+  { text: "You are viewing the morning Alex asked to be Penelope's boyfriend!", image: import.meta.env.BASE_URL + "images/dating.png" },
+  { text: "You are witnessing the magic of Penelope and Alex's first Christmas together!", image: import.meta.env.BASE_URL + "images/christmas.png" },
+  { text: "You revealed one of many traveling destinations of Penelope and Alex!", image: import.meta.env.BASE_URL + "images/times.png" },
+  { text: "You unlocked one of the most delicious and heartwarming meals ever!", image: import.meta.env.BASE_URL + "images/kbbq.png" },
+  {
+    text: "Looking back on all of these memories, it's hard to pick my favorites. Every moment I share with you is so special and precious to me. To creating many more together! I'll always love you Alex ~ Happy Valentine's Day ❤️",
+    image: import.meta.env.BASE_URL + "images/love.gif" 
+  }
 ];
+
 
 const GachaGame = () => {
   const [selectedMemory, setSelectedMemory] = useState(null);
@@ -28,12 +39,26 @@ const GachaGame = () => {
   const [rotation, setRotation] = useState(0);
   const [itemMemoryMap, setItemMemoryMap] = useState({});
 
+  // useEffect(() => {
+  //   if (!Object.keys(itemMemoryMap).length) {
+  //     let map = {};
+  //     items.forEach((item, index) => {
+  //       map[index] = memories[Math.floor(Math.random() * memories.length)];
+  //     });
+  //     setItemMemoryMap(map);
+  //   }
+  // }, []);
   useEffect(() => {
     if (!Object.keys(itemMemoryMap).length) {
+      // Shuffle the memories array so each run gets a random order
+      const shuffledMemories = [...memories].sort(() => Math.random() - 0.5);
+      
+      // Assign each item a unique memory
       let map = {};
       items.forEach((item, index) => {
-        map[index] = memories[Math.floor(Math.random() * memories.length)];
+        map[index] = shuffledMemories[index]; // Ensure no duplicates
       });
+  
       setItemMemoryMap(map);
     }
   }, []);

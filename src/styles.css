@@ -1,5 +1,40 @@
+@font-face {
+  font-family: 'BeautifulDream';
+  src: url('/fonts/Beautiful-Dream.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay';
+  src: url('/fonts/PlayfairDisplay.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay-Italic';
+  src: url('/fonts/PlayfairDisplay-Italic.ttf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+h1 {
+  font-family: 'BeautifulDream', sans-serif;
+  /* text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 
+  0 0 20px rgba(255, 20, 147, 0.7), 
+  0 0 30px rgba(255, 105, 180, 0.6); 
+  transition: text-shadow 0.3s ease-in-out; */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.9), 
+  0 0 10px rgba(255, 20, 147, 0.8), 
+  0 0 20px rgba(255, 20, 147, 0.6);
+}
+
 body {
-  font-family: Arial, sans-serif;
+  /* font-family: Arial, sans-serif; */
+  /* font-family: 'BeautifulDream', sans-serif; */
+  font-family: 'PlayfairDisplay-Italic';
   text-align: center;
   overflow: hidden;
   /* background: linear-gradient(180deg, #ffdde1, #ee9ca7); */
@@ -31,6 +66,66 @@ body {
   align-items: center;
   text-align: center;
 }
+
+.header-container p {
+  font-size: larger;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1),
+               0 0 20px rgba(255, 20, 147, 1),
+               0 0 40px rgba(255, 20, 147, 0.9),
+               0 0 0px rgba(255, 105, 180, 1);
+  animation: neonPulse 5s infinite alternate ease-in-out,
+  neonFlicker 5s infinite alternate ease-in-out;
+}
+
+
+
+@keyframes neonPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                 0 0 10px rgba(255, 20, 147, 0.7),
+                 0 0 20px rgba(255, 20, 147, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1),
+                 0 0 30px rgba(255, 20, 147, 1),
+                 0 0 60px rgba(255, 20, 147, 0.9);
+    transform: scale(1.05); 
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                 0 0 10px rgba(255, 20, 147, 0.7),
+                 0 0 20px rgba(255, 20, 147, 0.8);
+    transform: scale(1);
+  }
+}
+/* @keyframes neonPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                 0 0 15px rgba(255, 20, 147, 0.6),
+                 0 0 30px rgba(255, 20, 147, 0.7);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                 0 0 25px rgba(255, 20, 147, 0.8),
+                 0 0 50px rgba(255, 20, 147, 0.7);
+    transform: scale(1.02);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                 0 0 15px rgba(255, 20, 147, 0.6),
+                 0 0 30px rgba(255, 20, 147, 0.7);
+    transform: scale(1);
+  }
+} */
+
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.96; } /* Prevents extreme flickering */
+}
+
+
 
 .floating-container {
   position: absolute;
@@ -108,6 +203,7 @@ body {
   z-index: -1;
   background: linear-gradient(180deg, #ffdde1, #ee9ca7);
   overflow: hidden;
+  /* filter: blur(4px); */
 }
 
 .cloud {
