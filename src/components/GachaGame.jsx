@@ -39,24 +39,16 @@ const GachaGame = () => {
   const [rotation, setRotation] = useState(0);
   const [itemMemoryMap, setItemMemoryMap] = useState({});
 
-  // useEffect(() => {
-  //   if (!Object.keys(itemMemoryMap).length) {
-  //     let map = {};
-  //     items.forEach((item, index) => {
-  //       map[index] = memories[Math.floor(Math.random() * memories.length)];
-  //     });
-  //     setItemMemoryMap(map);
-  //   }
-  // }, []);
+
   useEffect(() => {
     if (!Object.keys(itemMemoryMap).length) {
-      // Shuffle the memories array so each run gets a random order
+
       const shuffledMemories = [...memories].sort(() => Math.random() - 0.5);
       
-      // Assign each item a unique memory
+  
       let map = {};
       items.forEach((item, index) => {
-        map[index] = shuffledMemories[index]; // Ensure no duplicates
+        map[index] = shuffledMemories[index]; 
       });
   
       setItemMemoryMap(map);
@@ -96,22 +88,7 @@ const GachaGame = () => {
       </div>
 
       <div className="carousel-wrapper">
-        {/* <motion.div
-          className="carousel"
-          animate={{ rotateY: rotation }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              className="carousel-item"
-              style={{ transform: `rotateY(${index * (360 / items.length)}deg) translateZ(300px)` }}
-              onClick={() => handleItemClick(index)}
-            >
-              <span>{item.emoji}</span>
-            </motion.div>
-          ))}
-        </motion.div> */}
+
           <motion.div
             className="carousel"
           >
@@ -135,22 +112,6 @@ const GachaGame = () => {
         <button onClick={() => rotateCarousel(1)}>▶</button>
       </div>
 
-      {/* <AnimatePresence>
-        {showPopup && selectedMemory && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            className="memory-popup"
-          >
-            <div className="memory-card">
-              <p>{selectedMemory.text}</p>
-              <img src={selectedMemory.image} alt="Memory" />
-              <button onClick={closePopup}>Close</button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence> */}
       <AnimatePresence>
         {showPopup && selectedMemory && (
           <motion.div
@@ -159,7 +120,6 @@ const GachaGame = () => {
             exit={{ opacity: 0, scale: 0.5 }}
             className="memory-popup"
           >
-            {/* Heart Explosion Effect */}
             <div className="heart-explosion">
               {[...Array(10)].map((_, i) => (
                 <motion.div
@@ -183,7 +143,6 @@ const GachaGame = () => {
               ))}
             </div>
 
-            {/* Pop-up Memory Card */}
             <div className="memory-card">
               <p>{selectedMemory.text}</p>
               <img src={selectedMemory.image} alt="Memory" />
